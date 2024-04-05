@@ -1,11 +1,10 @@
 import Phaser from 'phaser';
 
-
 import RexUIPlugin from 'phaser3-rex-plugins/templates/ui/ui-plugin.js';
 
 import TextEditPlugin from 'phaser3-rex-plugins/plugins/textedit-plugin.js';
-import BBCodeTextPlugin from 'phaser3-rex-plugins/plugins/bbcodetext-plugin.js';
 
+//import BBCodeTextPlugin from 'phaser3-rex-plugins/plugins/bbcodetext-plugin.js';
 
 import PreloadFonts from './scenes/preloadfonts.js';
 import PreloadAssets from './scenes/preloadassets.js';
@@ -36,10 +35,11 @@ const config = {
 
     },
 
-    scene: [PreloadFonts, PreloadAssets,
+    scene: [
+        PreloadFonts, 
+        PreloadAssets,
         Splash,
 
-   
     ],
     parent: 'phased',
     // fullscreenTarget: divId, // For fullscreen
@@ -54,6 +54,7 @@ const config = {
             target: 'phased'
         },
     },
+    
     plugins: {
         scene: [
              {
@@ -62,36 +63,19 @@ const config = {
                 mapping: 'rexUI'
             },
             {
-                key: 'rexTextEdit',
+                key: 'rexTextEditPlugin',
                 plugin: TextEditPlugin,
                 start: true
             },
-            {
-                key: 'rexBBCodeTextPlugin',
-                plugin: BBCodeTextPlugin,
-                start: true
-            },
-
         ],
-/*
-        global: [
-            {
-                key: 'rexUI',
-                plugin: RexUIPlugin,
-                mapping: 'rexUI'
-            },
-            {
-                key: 'rexTextEdit',
-                plugin: TextEditPlugin,
-                start: true
-            },
-            {
-                key: 'BBCodeTextPlugin',
-                plugin: BBCodeTextPlugin,
-                start: true
-            }
-        ]
-*/
+
+        // global: [
+        //     {
+        //         key: 'rexbbcodetextplugin',
+        //         plugin: BBCodeTextPlugin,
+        //         start: true
+        //     }
+        // ]
     },
 
     transparent: true,
